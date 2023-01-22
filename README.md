@@ -52,6 +52,7 @@ The API follows the OpenAPI specification version 3. The documentation can be ac
 ## Endpoints
 
 POST /register/client: Registers a new client
+
 POST /register/conversion: Registers a new conversion
 
 
