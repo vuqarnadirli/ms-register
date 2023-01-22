@@ -16,11 +16,12 @@ docker build -t ms-register:latest .
 
 ## Run the application in a Docker container
 
-docker run -p 8080:8080 my-spring-app
+docker run -p 8080:8080 ms-register
 
 ## Docker Compose
 
 Run the application using docker-compose
+
 cd META-INF
 
 docker-compose up
