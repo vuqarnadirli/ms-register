@@ -1,0 +1,32 @@
+version: '3'
+services:
+  msregister:
+    image: ms-register
+    build:
+      context: ""
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/msregister
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=password
+      - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.PostgreSQLDialect
+      - SPRING_JPA_SHOW_SQL=true
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=none
+      - SPRING_LIQUIBASE_CHANGELOG=classpath:db/changelog-master.yml
+      - SPRING_LIQUIBASE_ENABLED=true
+  db:
+    image: 'postgres:14.1-alpine'
+    volumes:
+      - database-data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=msregister
+    ports:
+      - "5432:5432"
+
+volumes:
+  database-data:

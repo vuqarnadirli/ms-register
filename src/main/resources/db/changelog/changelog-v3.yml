@@ -1,0 +1,44 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-failed-calls
+      author: Muzaffar Ali
+      changes:
+        - createTable:
+            tableName: FAILED_CALLS
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: client_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+              - column:
+                  name: request_type
+                  type: VARCHAR(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: payload
+                  type: VARCHAR(1000)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: reason
+                  type: VARCHAR(1000)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: time_of_failure
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: processed
+                  type: BOOLEAN
+                  constraints:
+                    nullable: false

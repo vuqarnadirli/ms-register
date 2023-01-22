@@ -1,0 +1,44 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-affiliate-transactions
+      author: Muzaffar Ali
+      changes:
+        - createTable:
+            tableName: AFFILIATE_TRANSACTIONS
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: conversion_id
+                  type: BIGINT
+              - column:
+                  name: client_id
+                  type: UUID
+              - column:
+                  name: referral_code
+                  type: VARCHAR(255)
+              - column:
+                  name: order_id
+                  type: UUID
+              - column:
+                  name: currency
+                  type: VARCHAR(255)
+              - column:
+                  name: order_amount
+                  type: DOUBLE
+              - column:
+                  name: conversion_amount
+                  type: DOUBLE
+              - column:
+                  name: transaction_type
+                  type: VARCHAR(255)
+              - column:
+                  name: creation_date
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false

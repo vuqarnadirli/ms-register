@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-affiliate-client-map
+      author: Muzaffar Ali
+      changes:
+        - createTable:
+            tableName: AFFILIATE_CLIENT_MAP
+            columns:
+              - column:
+                  name: client_id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: referral_code
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: click_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+              - column:
+                  name: client_ip
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_agent
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: creation_date
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+                    defaultValueComputed: CURRENT_TIMESTAMP
